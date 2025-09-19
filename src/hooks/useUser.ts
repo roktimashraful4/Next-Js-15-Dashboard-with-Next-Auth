@@ -1,3 +1,5 @@
+"use client";
+
 import { useFetch } from "./useFetch";
 
 export interface User {
@@ -7,6 +9,11 @@ export interface User {
   company: { name: string };
 }
 
-export function useUsers() {
-  return useFetch<User[]>("https://jsonplaceholder.typicode.com/users");
+export function useUsers(simulateError = false) {
+  const url = simulateError
+    ? "https://jsonplaceholder.typicode.com/invalid-users" // ❌ intentional error
+    : "https://jsonplaceholder.typicode.com/users";
+
+  // useFetch will return { data, loading, error, refetch }
+  return useFetch<User[]>(url);
 }

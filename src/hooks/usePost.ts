@@ -7,6 +7,6 @@ export interface Post {
   userId: number;
 }
 
-export function usePosts() {
-  return useFetch<Post[]>("https://jsonplaceholder.typicode.com/posts");
+export function usePosts(url: string = "https://jsonplaceholder.typicode.com/posts") {
+  return useFetch<Post[]>(url);
 }
