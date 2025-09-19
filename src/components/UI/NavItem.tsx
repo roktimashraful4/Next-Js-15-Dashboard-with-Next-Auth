@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 interface NavItemProps {
   text: string;
@@ -11,7 +12,7 @@ interface NavItemProps {
 
 const NavItem = ({ text, href, icon, isActive, isCollapsed }: NavItemProps) => {
   return (
-    <a
+    <Link
       href={href}
       title={text}
       className={`group flex items-center ${
@@ -42,7 +43,7 @@ const NavItem = ({ text, href, icon, isActive, isCollapsed }: NavItemProps) => {
           {text}
         </motion.span>
       )}
-    </a>
+    </Link>
   );
 };
 

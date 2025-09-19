@@ -1,7 +1,6 @@
-// components/Sidebar.tsx
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
-import { Home, Settings, Users, MessageSquare, BarChart, HelpCircle, LogOut } from "lucide-react";
+import { Home, LogOut, Newspaper, Users } from "lucide-react";
 import NavItem from "./UI/NavItem";
 
 interface SidebarProps {
@@ -49,12 +48,9 @@ export default function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
 
         {/* Nav Items */}
         <nav className="p-4 space-y-2 flex-1">
-          <NavItem text="Home" href="#" icon={<Home size={20} />} isActive={!isOpen} isCollapsed={isOpen} />
-          <NavItem text="Profile" href="#" icon={<Users size={20} />} isCollapsed={isOpen} />
-          <NavItem text="Settings" href="#" icon={<Settings size={20} />} isCollapsed={isOpen} />
-          <NavItem text="Messages" href="#" icon={<MessageSquare size={20} />} isCollapsed={isOpen} />
-          <NavItem text="Analytics" href="#" icon={<BarChart size={20} />} isCollapsed={isOpen} />
-          <NavItem text="Help" href="#" icon={<HelpCircle size={20} />} isCollapsed={isOpen} />
+          <NavItem text="Home" href="/" icon={<Home size={20} />} isActive={!isOpen} isCollapsed={isOpen} />
+          <NavItem text="Posts" href="/posts" icon={<Newspaper size={20} />} isCollapsed={isOpen} />
+          <NavItem text="Users" href="/users" icon={<Users size={20} />} isCollapsed={isOpen} />
         </nav>
       {/* button logout */}
         <button
