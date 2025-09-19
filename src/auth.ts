@@ -10,3 +10,20 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
   ],
     secret: process.env.NEXTAUTH_SECRET,
 })
+
+
+export const authConfig = {
+  // ... other config
+  cookies: {
+    pkceCodeVerifier: {
+      name: "next-auth.pkce.code_verifier",
+      options: {
+        domain: process.env.NEXTAUTH_URL || "http://localhost:3000", // Note the dot prefix
+        secure: true, // Required for production
+        sameSite: "lax",
+        path: "/",
+        maxAge: 900 // 15 minutes
+      }
+    }
+  }
+}
