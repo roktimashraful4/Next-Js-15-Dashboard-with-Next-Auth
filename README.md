@@ -1,35 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Dashboard
+
+This is a dashboard application built with Next.js, TypeScript, and Tailwind CSS. It includes features like user authentication, a dashboard with charts, and sections for managing posts and users.
+
+## Features
+
+*   **Authentication:** User authentication powered by NextAuth.js. Includes a login page, and signout functionality.
+*   **Dashboard:** A central dashboard displaying key metrics and information.
+    *   Interactive charts using ApexCharts and React Trend.
+    *   Dashboard cards for displaying summary information.
+*   **Posts:** A section for managing and displaying posts.
+*   **Users:** A section for managing and displaying users.
+*   **Profile:** A user profile page.
+*   **Rich UI Components:** A rich set of UI components are available, including a navbar, sidebar, and various cards and charts.
+*   **Custom Hooks:** Custom hooks for fetching data and managing UI state.
+
+## Technologies Used
+
+*   **Framework:** [Next.js](https://nextjs.org/)
+*   **Language:** [TypeScript](https://www.typescriptlang.org/)
+*   **Authentication:** [NextAuth.js](https://next-auth.js.org/)
+*   **UI:**
+    *   [Framer Motion](https://www.framer.com/motion/) for animations.
+    *   [Lucide React](https://lucide.dev/guide/packages/lucide-react) for icons.
+*   **Charting:**
+    *   [ApexCharts](https://apexcharts.com/)
+    *   [React Trend](https://github.com/unsplash/react-trend)
+*   **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+*   **Linting:** [ESLint](https://eslint.org/)
 
 ## Getting Started
 
-First, run the development server:
+First, install the dependencies:
+
+```bash
+npm install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### `src/app`
 
-## Learn More
+This directory contains the main application pages and API routes.
 
-To learn more about Next.js, take a look at the following resources:
+### `src/components`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This directory contains the reusable React components used throughout the application.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### `src/hooks`
 
-## Deploy on Vercel
+This directory contains custom React hooks.
+
+### `src/types`
+
+This directory contains TypeScript type definitions.
+
+### `src/utils`
+
+This directory contains utility functions.
+
+## Deployment
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
