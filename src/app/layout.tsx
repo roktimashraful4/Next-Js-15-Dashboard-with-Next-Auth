@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import "./globals.css";
 import DashboardLayout from "@/components/layout/DashboardLayout";
+import { SessionProvider } from "next-auth/react";
 
 
 const nunito = Nunito({
@@ -26,7 +27,10 @@ export default function RootLayout({
       <body
         className={` ${nunito.variable} antialiased`}
       >
+        
+    <SessionProvider >
          <DashboardLayout>{children}</DashboardLayout>
+    </SessionProvider>
       </body>
     </html>
   );

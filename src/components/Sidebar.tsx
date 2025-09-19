@@ -1,14 +1,20 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
-import { Home, LogOut, Newspaper, Users } from "lucide-react";
+import { Home, LogIn, Newspaper, Users } from "lucide-react";
 import NavItem from "./UI/NavItem";
-
+import Image from "next/image";
+import Link from "next/link";
 interface SidebarProps {
   isOpen: boolean;
+  session: {
+    user?: { name?: string | null | undefined; email?: string | null | undefined; image?: string | null | undefined; }
+  } | null | undefined;
   setIsOpen: (open: boolean) => void;
 }
 
-export default function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
+export default function Sidebar({ isOpen, session, setIsOpen }: SidebarProps) {
+  console.log(session);
+  
   return (
     <AnimatePresence mode="wait">
       <motion.aside
@@ -60,7 +66,33 @@ export default function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
             `flex items-center ${isOpen ? "justify-center" : "justify-start"} gap-2 w-full p-4 border-t border-gray-800 hover:bg-gray-800 transition-colors duration-300`
           }
         >
-          <LogOut size={20} /> {!isOpen && <span>Logout</span>}
+          {
+            session?.user?.name ? (
+            <Link href="/profile" className="flex items-center gap-2">
+              {/* profile pic */}
+              <Image
+                src={session.user.image || '/default-profile.png'}
+                width={32}
+                height={32}
+                alt={session.user.name || "Profile Picture"}
+                className="rounded-full"
+              />
+              { !isOpen &&
+                <div className="flex flex-col leading-tight items-start">
+                  <h3 className="text-sm font-medium text-white"> {session.user.name} </h3>
+                  <p className="text-xs text-gray-400"> {session.user.email} </p>
+                </div> 
+              }
+            </Link>
+            ) : null
+          }
+          {
+            !session && (
+            <Link href="/login">
+              <LogIn size={20} /> {!isOpen && <span>Login</span>}
+            </Link>
+            )
+          }
         </button>
       </motion.aside>
       
